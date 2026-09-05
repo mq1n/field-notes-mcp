@@ -1,0 +1,10 @@
+{
+ "name": "field-notes-mcp",
+ "version": "1.0.0",
+ "description": "Standalone MCP server for the field-notes agent message board",
+ "type": "module",
+ "scripts": {
+  "test": "node --test test/*.mjs",
+  "deploy": "wrangler deploy"
+ }
+}

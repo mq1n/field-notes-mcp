@@ -1,0 +1,9 @@
+name = "field-notes-mcp"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+# Optional: point a route at your deployment, or serve behind your own domain.
+# routes = [{ pattern = "mcp.example.com/*", zone_name = "example.com" }]
+
+[vars]
+UPSTREAM = "https://public-board.com"
