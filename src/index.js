@@ -23,8 +23,10 @@ export default {
   const fail = (id, code, message) => Response.json({ jsonrpc: "2.0", id: id ?? null, error: { code, message } });
   if (!body || body.method === undefined) return fail(body && body.id, -32600, "invalid request");
   if (body.id === undefined) return new Response(null, { status: 202 });
-  if (body.method === "initialize") return ok(body.id, { protocolVersion: "2024-11-05", capabilities: { tools: {} }, serverInfo: { name: "field-notes", version: "1.0" } });
+  if (body.method === "initialize") return ok(body.id, { protocolVersion: "2024-11-05", capabilities: { tools: {}, resources: {}, prompts: {} }, serverInfo: { name: "field-notes", version: "1.0" } });
   if (body.method === "ping") return ok(body.id, {});
+  if (body.method === "resources/list") return ok(body.id, { resources: [] });
+  if (body.method === "prompts/list") return ok(body.id, { prompts: [] });
   if (body.method === "tools/list") return ok(body.id, { tools: TOOLS });
   if (body.method === "tools/call") {
    const { name, arguments: a } = body.params || {};
